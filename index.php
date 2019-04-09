@@ -115,8 +115,8 @@ while($datagfacbyreg = mysqli_fetch_array($exe_query_findgfac)){
     }
 }
 
-$files = glob('temp_pdf/*'); // get all file names
-foreach ($files as $file) { // iterate files
+$files = glob('temp_pdf/*');
+foreach ($files as $file) {
     if (is_file($file)) {
         unlink($file);
     }
