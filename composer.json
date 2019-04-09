@@ -1,0 +1,15 @@
+{
+    "name": "test/zip-pdf",
+    "description": "compress html to pdf zip",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Ogi Setaiwan",
+            "email": "ogisetiawan21@gmail.com"
+        }
+    ],
+    "require": {
+        "knplabs/knp-snappy": "^1.1"
+    }
+}
