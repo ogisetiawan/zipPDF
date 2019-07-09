@@ -1,4 +1,34 @@
 <?php
+/* snappy */
+require __DIR__ . '/vendor/autoload.php';
+use Knp\Snappy\Pdf;
+$snappy = new Pdf;
+// $snappy->setBinary('C://"Program Files"/wkhtmltopdf/bin/wkhtmltopdf.exe');
+$snappy->setBinary(__DIR__.'/vendor/wkhtmltopdf/bin/wkhtmltopdf.exe');
+// echo $snappy->generateFromHtml($html, 'temp/f.pdf');
+header('Content-Type: application/pdf');
+// header('Content-Disposition: attachment; filename="file.pdf"');
+echo $snappy->getOutput('http://localhost/app/_tester/zipPDF_7-1-x/template_pdf/rpt_evaluasi_sample.php', array(
+	// 'orientation'=>'Landscape',
+	// 'javascript-delay' => 1000, 
+	'no-stop-slow-scripts' => true, 
+	// 'no-background' => false, 
+	// 'lowquality' => true,
+	// 'page-height' => 420,
+	// 'page-width'  => 310,
+	// 'page-size' => 'A4',
+	'encoding' => 'utf-8',
+	'images' => true,
+	// 'cookie' => array(),
+	// 'dpi' => 300,
+	// 'image-dpi' => 300,
+	// 'enable-external-links' => true,
+	// 'enable-internal-links' => true
+	));
+die();
+
+
+
 /* memeroy usage*/
 print(memory_get_usage() . "<br>");
 ob_start();
@@ -129,33 +159,6 @@ function recordTime () {
 for ($i = 0; $i < 94959; $i ++) {
   recordTime();
 }
-die();
-
-/* snappy */
-require __DIR__ . '/vendor/autoload.php';
-use Knp\Snappy\Pdf;
-$snappy = new Pdf;
-$snappy->setBinary('C://"Program Files"/wkhtmltopdf/bin/wkhtmltopdf.exe');
-// echo $snappy->generateFromHtml($html, 'temp/f.pdf');
-header('Content-Type: application/pdf');
-// header('Content-Disposition: attachment; filename="file.pdf"');
-echo $snappy->getOutput('http://localhost/test/content.php', array(
-	// 'orientation'=>'Landscape',
-	// 'javascript-delay' => 1000, 
-	'no-stop-slow-scripts' => true, 
-	// 'no-background' => false, 
-	'lowquality' => true,
-	'page-height' => 420,
-	'page-width'  => 310,
-	// 'page-size' => 'A4',
-	// 'encoding' => 'utf-8',
-	// 'images' => true,
-	// 'cookie' => array(),
-	// 'dpi' => 300,
-	// 'image-dpi' => 300,
-	// 'enable-external-links' => true,
-	// 'enable-internal-links' => true
-	));
 die();
 
 //  index.php:
